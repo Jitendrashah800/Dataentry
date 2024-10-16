@@ -27,15 +27,16 @@
                 };
 
                 $.ajax({
-                    url: 'https://script.google.com/macros/s/1sqd3Z1cpZU66NxLr_bQCZDZEXc3olx86ztIOUAxEGB82qllX8xJII6gh/exec',
+                    url: 'https://script.google.com/macros/s/AKfycbzg4pFGtF4V-wFzzT7n3apBdgp4_H0-EIQjX9OmVZva9aWBRKylXWX54-pY80_qiRxz/exec',
                     type: 'POST',
                     data: JSON.stringify(formData),
                     contentType: 'application/json',
                     success: function(response) {
                         alert('Form submitted successfully!');
                     },
-                    error: function(error) {
-                        alert('Error submitting form: ' + error);
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Error details:", jqXHR);
+                        alert('Error submitting form: ' + textStatus + ' - ' + errorThrown);
                     }
                 });
             });
